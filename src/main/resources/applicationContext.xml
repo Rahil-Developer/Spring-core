@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+       xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.2.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:context="http://www.springframework.org/schema/context">
+       
+       <context:component-scan base-package="com.spring.practice.di" />
+       
+       <beans:bean id="dobFormat" class="java.text.SimpleDateFormat">
+        	<beans:constructor-arg value="dd-MM-yyyy" />
+    	</beans:bean>
+       
+       <beans:bean id="student1" class="com.spring.practice.di.model.Student">
+       		<beans:constructor-arg index="0" value="1" type="int" />
+       		<beans:constructor-arg index="1" value="Ramesh" type="java.lang.String"  />
+       		<!-- <beans:property name="dob">
+       			<beans:bean factory-bean="dobFormat" factory-method="parse">
+                	<beans:constructor-arg index="2" value="23-03-1982"/>
+            	</beans:bean>
+       		</beans:property> -->
+       		<!-- <beans:constructor-arg index="2" value="23-03-1982" type="date"/> -->
+       		<beans:constructor-arg index="2" value="B+" type="java.lang.String" />
+       		<beans:constructor-arg index="3" value="3315459877" type="java.lang.String" />
+       </beans:bean>   
+</beans:beans>       
